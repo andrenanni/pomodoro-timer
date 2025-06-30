@@ -1,14 +1,12 @@
 function Timer(props){
     return(
-        <div className="w-[340px] h-[383px] bg-[#f9f9f9] rounded-4xl flex items-center justify-center">
-            <div className="fle flex-col">
-                <h1 className="text-[140pt] font-roboto font-black">
+        <div className="flex flex-col items-center justify-center leading-[130px]">
+            <span className="text-[125pt] font-roboto font-black text-[#FF6C6C]">
                 {props.minutes}
-            </h1>
-                <h1 className="text-[140pt] font-roboto font-black">
+            </span>
+            <span className="text-[125pt] font-roboto font-black text-[#FF6C6C]">
                 {props.seconds}
-            </h1>
-            </div>
+            </span>
         </div>
     );
 }

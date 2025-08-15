@@ -5,12 +5,14 @@ import Timer from './components/Timer'
 import Buttons from './components/Buttons';
 import PomodoroCycle from './components/PomodoroCycle';
 import cycleOptions from './data/CycleOptions';
+import ModalSettings from './components/ModalSettings';
 
 function App() {
 
   const [time, setTime] = useState(1500);
   const [currentCycle, setCurrentCycle] = useState("Foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
+  const [showSetting, setShowSetting] = useState(false);
 
 function handleCycle(){
   const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
@@ -21,7 +23,7 @@ function handleCycle(){
 }
 
 function handleSetting(){
-   console.log("Hello World");
+   setShowSetting(true);
 }
 
 function handlePlay(){
@@ -33,6 +35,7 @@ function handlePlay(){
 
   return (
     <div className="w-screen h-screen flex justify-center items-center flex-col gap-2" style={{backgroundColor: currentColor}}>
+      <ModalSettings showSetting={showSetting} onClose={ () => setShowSetting(false)}/>
       <PomodoroCycle currentCycle={currentCycle}/>
       <div className="w-[340px] h-max-[383px] bg-[#f9f9f9] rounded-4xl flex flex-col justify-evenly p-6 shadow-[0_0_20px_rgba(0,0,0,0.20)]">
         <Timer

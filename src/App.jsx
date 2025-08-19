@@ -13,6 +13,12 @@ function App() {
   const [currentCycle, setCurrentCycle] = useState("Foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
   const [showSetting, setShowSetting] = useState(false);
+  const [valueInput, setValueInput] = useState({
+    pomodoro: 25,
+    pausaCurta: 5,
+    pausaLonga: 15,
+    ciclos: 25,
+  });
 
 function handleCycle(){
   const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
@@ -35,8 +41,11 @@ function handlePlay(){
 
   return (
     <div className="w-screen h-screen flex justify-center items-center flex-col gap-2" style={{backgroundColor: currentColor}}>
-      <ModalSettings showSetting={showSetting} onClose={ () => setShowSetting(false)}/>
+      
+      <ModalSettings showSetting={showSetting} valueInput={valueInput} setValueInput={setValueInput} onClose={ () => setShowSetting(false)}/>
+
       <PomodoroCycle currentCycle={currentCycle}/>
+
       <div className="w-[340px] h-max-[383px] bg-[#f9f9f9] rounded-4xl flex flex-col justify-evenly p-6 shadow-[0_0_20px_rgba(0,0,0,0.20)]">
         <Timer
           minutes={String(minutes).padStart(2, '0')}

@@ -1,43 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 import Footer from './components/footer'
 import Timer from './components/Timer'
 import Buttons from './components/Buttons';
 import PomodoroCycle from './components/PomodoroCycle';
-import cycleOptions from './data/CycleOptions';
 import ModalSettings from './components/ModalSettings';
+import { PomodoroContext } from './context/PomodoroContext';
+import { useContext } from 'react';
 
 function App() {
 
-  const [time, setTime] = useState(1500);
-  const [currentCycle, setCurrentCycle] = useState("Foco");
-  const [currentColor, setCurrentColor] = useState('#FF6C6C');
-  const [showSetting, setShowSetting] = useState(false);
-  const [valueInput, setValueInput] = useState({
-    pomodoro: 25,
-    pausaCurta: 5,
-    pausaLonga: 15,
-    ciclos: 25,
-  });
+  const {showSetting, valueInput, setValueInput, setShowSetting, currentCycle, handleCycle, handleSetting, handlePlay, currentColor, minutes, seconds} = useContext(PomodoroContext);
 
-function handleCycle(){
-  const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
-  let cycle = cycleIndex + 1;
-  cycle > 2 ? cycle = 0 : null
-  setCurrentCycle(cycleOptions[cycle].label)
-  setCurrentColor(cycleOptions[cycle].color)
-}
-
-function handleSetting(){
-   setShowSetting(true);
-}
-
-function handlePlay(){
-   console.log("Hello World play")
-}
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  console.log(showSetting);
 
   return (
     <div className="w-screen h-screen flex justify-center items-center flex-col gap-2" style={{backgroundColor: currentColor}}>

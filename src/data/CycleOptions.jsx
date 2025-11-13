@@ -7,7 +7,7 @@ const cycleOptions = [
         icon: <Brain></Brain>
     },
     {
-        label: "Pausa curta",
+        label: "pausaCurta",
         color: "#7bb35d",
         icon: <Coffee></Coffee>
     },    

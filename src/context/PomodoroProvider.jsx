@@ -6,7 +6,7 @@ export function PomodoroProvider({ children }){
 
   const [darkMode, setDarkMode] = useState(false);
   const [time, setTime] = useState(1500);
-  const [currentCycle, setCurrentCycle] = useState("Foco");
+  const [currentCycle, setCurrentCycle] = useState("foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
   const [showSetting, setShowSetting] = useState(false);
   const [valueInput, setValueInput] = useState({
@@ -16,12 +16,25 @@ export function PomodoroProvider({ children }){
     ciclos: 25,
   });
 
-function handleCycle(){
-  const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
+function handleCycle(currentCycle){
+  if (currentCycle === "pausaCurta"){
+    setCurrentColor('#7bb35d')
+    setCurrentCycle(currentCycle)
+  }
+  if (currentCycle === "foco"){
+    setCurrentColor('#FF6C6C')
+    setCurrentCycle(currentCycle)
+  }
+  if (currentCycle === "pausaLonga"){
+    setCurrentColor('#406E9F')
+    setCurrentCycle(currentCycle)
+  }
+
+  /*  const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
   let cycle = cycleIndex + 1;
   cycle > 2 ? cycle = 0 : null
   setCurrentCycle(cycleOptions[cycle].label)
-  setCurrentColor(cycleOptions[cycle].color)
+  setCurrentColor(cycleOptions[cycle].color) */
 }
 
 function handleSetting(){

@@ -14,7 +14,7 @@ function App() {
   console.log(showSetting);
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center flex-col gap-2" style={{backgroundColor: currentColor}}>
+    <div className="w-screen h-screen flex justify-center items-center flex-col gap-4" style={{backgroundColor: currentColor}}>
       
       <ModalSettings showSetting={showSetting} valueInput={valueInput} setValueInput={setValueInput} onClose={ () => setShowSetting(false)}/>
 

@@ -8,7 +8,7 @@ export function PomodoroProvider({ children }){
   const [time, setTime] = useState(1500);
   const [currentCycle, setCurrentCycle] = useState("foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
-  const [showSetting, setShowSetting] = useState(false);
+  const [showSetting, setShowSetting] = useState(true);
   const [valueInput, setValueInput] = useState({
     pomodoro: 25,
     pausaCurta: 5,
@@ -29,12 +29,6 @@ function handleCycle(currentCycle){
     setCurrentColor('#406E9F')
     setCurrentCycle(currentCycle)
   }
-
-  /*  const cycleIndex = cycleOptions.findIndex(cycle => cycle.label === currentCycle);
-  let cycle = cycleIndex + 1;
-  cycle > 2 ? cycle = 0 : null
-  setCurrentCycle(cycleOptions[cycle].label)
-  setCurrentColor(cycleOptions[cycle].color) */
 }
 
 function handleSetting(){

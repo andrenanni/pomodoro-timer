@@ -20,7 +20,7 @@ function App() {
 
       <PomodoroCycle currentCycle={currentCycle}/>
 
-      <div className="w-[340px] h-max-[383px] bg-[#f9f9f9] rounded-4xl flex flex-col justify-evenly p-6 shadow-[0_0_20px_rgba(0,0,0,0.20)]">
+      <div className="w-[340px] h-max-[383px] bg-white rounded-4xl flex flex-col justify-evenly p-6 shadow-[0_0_20px_rgba(0,0,0,0.20)]">
         <Timer
           minutes={String(minutes).padStart(2, '0')}
           seconds={String(seconds).padStart(2, '0')}

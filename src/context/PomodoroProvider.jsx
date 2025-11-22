@@ -1,5 +1,5 @@
 import {useState} from "react";
-import cycleOptions from "../data/CycleOptions";
+/* import cycleOptions from "../data/CycleOptions"; */
 import { PomodoroContext } from "./PomodoroContext";
 
 export function PomodoroProvider({ children }){
@@ -39,6 +39,16 @@ function handlePlay(){
    console.log("Hello World play")
 }
 
+function valueSetIncrease( type ){
+  if (valueInput.pomodoro < 30){
+     setValueInput(prev => ({...prev, [type]: prev[type] + 1,}))};
+  }
+
+function valueSetDecrease( type ){
+if (valueInput.pomodoro > "0"){
+  setValueInput(prev => ({...prev, [type]: prev[type] - 1,}))};
+}
+
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
 
@@ -59,7 +69,9 @@ const values = {
     handleSetting,
     handlePlay,
     minutes,
-    seconds
+    seconds,
+    valueSetIncrease,
+    valueSetDecrease
 };
 
 return(
@@ -67,4 +79,3 @@ return(
         {children}
     </PomodoroContext.Provider>
 )}
-

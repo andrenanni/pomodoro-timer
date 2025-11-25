@@ -1,5 +1,5 @@
 import './App.css'
-import Footer from './components/FooterTemp'
+import Footer from './components/Footer'
 import Timer from './components/Timer'
 import Buttons from './components/Buttons';
 import PomodoroCycle from './components/PomodoroCycle';

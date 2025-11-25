@@ -8,7 +8,7 @@ export function PomodoroProvider({ children }){
   const [time, setTime] = useState(1500);
   const [currentCycle, setCurrentCycle] = useState("foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
-  const [showSetting, setShowSetting] = useState(true);
+  const [showSetting, setShowSetting] = useState(false);
   const [valueInput, setValueInput] = useState({
     pomodoro: 25,
     pausaCurta: 5,

@@ -13,7 +13,7 @@ export function PomodoroProvider({ children }){
     pomodoro: 25,
     pausaCurta: 5,
     pausaLonga: 15,
-    ciclos: 25,
+    ciclos: 4,
   });
 
 function handleCycle(currentCycle){
@@ -40,12 +40,12 @@ function handlePlay(){
 }
 
 function valueSetIncrease( type ){
-  if (valueInput.pomodoro < 30){
+  if (valueInput[type] < 30){
      setValueInput(prev => ({...prev, [type]: prev[type] + 1,}))};
   }
 
 function valueSetDecrease( type ){
-if (valueInput.pomodoro > "0"){
+if (valueInput[type] > "0"){
   setValueInput(prev => ({...prev, [type]: prev[type] - 1,}))};
 }
 

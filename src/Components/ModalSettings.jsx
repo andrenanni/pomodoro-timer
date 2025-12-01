@@ -3,7 +3,7 @@ import InputSpinner from "./InputSpinner";
 import { Switch } from '@headlessui/react'
 import { useState } from "react";
 
-function ModalSettings({showSetting, onClose, valueInput, setValueInput}){
+function ModalSettings({showSetting, onClose}){
 
 const [darkMode, setDarkMode] = useState(false)
 const [autoRestart, setAutoRestart] = useState(false)
@@ -32,32 +32,24 @@ const [autoRestart, setAutoRestart] = useState(false)
                                 <p>Pomodoro</p>
                                 <InputSpinner
                                     type="pomodoro"
-                                    value={valueInput.pomodoro}
-                                    setValueInput={setValueInput}
                                 />
                             </div>
                                 <div className="flex items-center w-full h-auto justify-between">
                                 <p>Pausa curta</p>
                                 <InputSpinner
-                                    type="pomodoro"
-                                    value={valueInput.pomodoro}
-                                    setValueInput={setValueInput}
+                                    type="pausaCurta"
                                 />
                             </div>
                                 <div className="flex items-center w-full h-auto justify-between">
                                 <p>Pausa longa</p>
                                 <InputSpinner
-                                    type="pomodoro"
-                                    value={valueInput.pomodoro}
-                                    setValueInput={setValueInput}
+                                    type="pausaLonga"
                                 />
                             </div>
                                 <div className="flex items-center w-full h-auto justify-between">
                                 <p>Quantidaded de ciclos</p>
                                 <InputSpinner
-                                    type="pomodoro"
-                                    value={valueInput.pomodoro}
-                                    setValueInput={setValueInput}
+                                    type="ciclos"
                                 />
                             </div>
                               <div className="flex w-full h-auto justify-between items-center">

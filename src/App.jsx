@@ -11,8 +11,6 @@ function App() {
 
   const {showSetting, valueInput, setValueInput, setShowSetting, currentCycle, handleCycle, handleSetting, handlePlay, currentColor, minutes, seconds} = useContext(PomodoroContext);
 
-  console.log(showSetting);
-
   return (
     <div className="w-screen h-screen flex justify-center items-center flex-col gap-4" style={{backgroundColor: currentColor}}>
       

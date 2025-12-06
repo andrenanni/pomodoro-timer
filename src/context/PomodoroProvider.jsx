@@ -1,11 +1,12 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 /* import cycleOptions from "../data/CycleOptions"; */
 import { PomodoroContext } from "./PomodoroContext";
 
 export function PomodoroProvider({ children }){
 
   const [darkMode, setDarkMode] = useState(false);
-  const [time, setTime] = useState(1500);
+  const [time, setTime] = useState();
+  const [isRunning, setIsRunning] = useState(false);
   const [currentCycle, setCurrentCycle] = useState("foco");
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
   const [showSetting, setShowSetting] = useState(false);
@@ -35,10 +36,6 @@ function handleSetting(){
    setShowSetting(true);
 }
 
-function handlePlay(){
-   console.log("Hello World play")
-}
-
 function valueSetIncrease( type ){
   if (valueInput[type] < 30){
      setValueInput(prev => ({...prev, [type]: prev[type] + 1,}))};
@@ -49,8 +46,28 @@ if (valueInput[type] > "0"){
   setValueInput(prev => ({...prev, [type]: prev[type] - 1,}))};
 }
 
+useEffect(() => {
+  const numberInput = valueInput.pomodoro * 60;
+  setTime(numberInput);
+}, [valueInput.pomodoro])
+
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
+
+function handlePlay(){
+   setIsRunning(prev => !prev);
+}
+
+  useEffect(() => {
+    if (!isRunning) return;
+    
+    const interval = setInterval(() => {
+      setTime(prev => prev -1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+}, [isRunning]);
+
 
 const values = {
     time,

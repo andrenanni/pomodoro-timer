@@ -1,5 +1,5 @@
 import './App.css'
-import Footer from './components/Footer.jsx';
+import FooterDev from './components/FooterDev';
 import Timer from './components/Timer';
 import Buttons from './components/Buttons';
 import PomodoroCycle from './components/PomodoroCycle';
@@ -25,7 +25,7 @@ function App() {
         />
         <Buttons onCycle={handleCycle} onSetting={handleSetting} onPlay={handlePlay}/>
       </div>
-      <Footer></Footer>
+      <FooterDev/>
     </div>
   )
 }

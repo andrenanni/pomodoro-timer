@@ -1,4 +1,4 @@
-function Footer(){
+function FooterDev(){
     return(
         <div className="flex flex-col bottom-2 fixed text-center">
         <div className="text-[11pt] text-white">fo’kus - Study Timer</div>    
@@ -7,4 +7,4 @@ function Footer(){
     )
 }
 
-export default Footer;
+export default FooterDev;

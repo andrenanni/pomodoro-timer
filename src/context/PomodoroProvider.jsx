@@ -88,7 +88,8 @@ const values = {
     minutes,
     seconds,
     valueSetIncrease,
-    valueSetDecrease
+    valueSetDecrease,
+    isRunning
 };
 
 return(

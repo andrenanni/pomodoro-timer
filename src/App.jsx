@@ -1,5 +1,5 @@
 import './App.css'
-/* import FooterDev from './components/FooterDev'; */
+import FooterDev from './components/FooterDev';
 import Timer from './components/Timer';
 import Buttons from './components/Buttons';
 import PomodoroCycle from './components/PomodoroCycle';
@@ -9,7 +9,7 @@ import { useContext } from 'react';
 
 function App() {
 
-  const {showSetting, valueInput, setValueInput, setShowSetting, currentCycle, handleCycle, handleSetting, handlePlay, currentColor, minutes, seconds} = useContext(PomodoroContext);
+  const {showSetting, valueInput, setValueInput, setShowSetting, currentCycle, resetCycle, handleSetting, handlePlay, currentColor, minutes, seconds} = useContext(PomodoroContext);
 
   return (
     <div className="w-screen h-screen flex justify-center items-center flex-col gap-4" style={{backgroundColor: currentColor}}>
@@ -23,9 +23,9 @@ function App() {
           minutes={String(minutes).padStart(2, '0')}
           seconds={String(seconds).padStart(2, '0')}
         />
-        <Buttons onCycle={handleCycle} onSetting={handleSetting} onPlay={handlePlay}/>
+        <Buttons onCycle={resetCycle} onSetting={handleSetting} onPlay={handlePlay}/>
       </div>
-      { /* <FooterDev/> */}
+      <FooterDev/>
     </div>
   )
 }

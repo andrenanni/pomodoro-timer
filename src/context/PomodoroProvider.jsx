@@ -11,7 +11,7 @@ export function PomodoroProvider({ children }){
   const [currentColor, setCurrentColor] = useState('#FF6C6C');
   const [showSetting, setShowSetting] = useState(false);
   const [valueInput, setValueInput] = useState({
-    pomodoro: 25,
+    foco: 25,
     pausaCurta: 5,
     pausaLonga: 15,
     ciclos: 4,
@@ -47,9 +47,9 @@ if (valueInput[type] > "0"){
 }
 
 useEffect(() => {
-  const numberInput = valueInput.pomodoro * 60;
+  const numberInput = valueInput[currentCycle] * 60;
   setTime(numberInput);
-}, [valueInput.pomodoro])
+}, [valueInput, currentCycle])
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
@@ -67,6 +67,12 @@ function handlePlay(){
 
     return () => clearInterval(interval);
 }, [isRunning]);
+
+function resetCycle(){
+  setIsRunning(false);
+  const numberInput = valueInput[currentCycle] * 60;
+  setTime(numberInput);
+}
 
 
 const values = {
@@ -89,7 +95,8 @@ const values = {
     seconds,
     valueSetIncrease,
     valueSetDecrease,
-    isRunning
+    isRunning,
+    resetCycle
 };
 
 return(

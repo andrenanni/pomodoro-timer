@@ -31,7 +31,7 @@ const [autoRestart, setAutoRestart] = useState(false)
                             <div className="flex items-center w-full h-auto justify-between">
                                 <p>Pomodoro</p>
                                 <InputSpinner
-                                    type="pomodoro"
+                                    type="foco"
                                 />
                             </div>
                                 <div className="flex items-center w-full h-auto justify-between">

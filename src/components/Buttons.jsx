@@ -6,8 +6,6 @@ function Buttons({ onCycle, onSetting, onPlay }){
 
 const {currentColor, isRunning} = useContext(PomodoroContext)
 
-console.log(isRunning);
-
     return(
         <div className="flex items-center justify-center gap-5" style={{color: currentColor }}>
             <button onClick={onCycle} className="bg-[#f4f4f4] rounded-full w-[47px] h-[47px] flex justify-center items-center cursor-pointer"><RotateCcw/></button>

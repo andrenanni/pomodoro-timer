@@ -62,11 +62,17 @@ function handlePlay(){
     if (!isRunning) return;
     
     const interval = setInterval(() => {
-      setTime(prev => prev -1);
+      setTime(prev => {
+        if (prev <= 1){
+          clearInterval(interval)
+          handleCycle("pausaLonga")
+        }
+        return prev -1});
     }, 1000);
-
+    
     return () => clearInterval(interval);
-}, [isRunning]);
+}, [isRunning, handleCycle]);
+
 
 function resetCycle(){
   setIsRunning(false);

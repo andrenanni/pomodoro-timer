@@ -15,7 +15,7 @@ return(
                 <button onClick={() => valueSetDecrease(type)} className="cursor-pointer rotate-180"><Triangle fill="#000" className="w-2 h-2"/></button>
             </div>
         </div>
-    )
+    ) 
 }
 
 
